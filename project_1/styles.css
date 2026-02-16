@@ -18,7 +18,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 p {
@@ -87,21 +87,22 @@ label.first-color {
   margin-left: 500px;
   background-image: url("./images/color1.jpg");
 }
-label.color-3 {
+label.color-2 {
   background-image: url("./images/color2.jpg");
 }
-label.color-5 {
+label.color-3 {
   background-image: url("./images/color3.jpg");
 }
-label.color-6 {
+label.color-4 {
   background-image: url("./images/color4.jpg");
 }
-label.color-4 {
+label.color-5 {
   background-image: url("./images/color5.jpg");
 }
-label.color-2 {
+label.color-6 {
   background-image: url("./images/color6.jpg");
 }
+
 
 .img-wrap {
   position: absolute;
@@ -127,6 +128,15 @@ label.color-2 {
 .img-wrap.chair-2 {
   background-image: url("./images/chair2.png");
 }
+/* BUG-2 FIX: hide default background when another color is selected */
+.for-color-2:checked ~ .back-color:not(.chair-2),
+.for-color-3:checked ~ .back-color:not(.chair-3),
+.for-color-4:checked ~ .back-color:not(.chair-4),
+.for-color-5:checked ~ .back-color:not(.chair-5),
+.for-color-6:checked ~ .back-color:not(.chair-6) {
+  opacity: 0;
+}
+
 .for-color-2:checked ~ .img-wrap.chair-2 {
   opacity: 1;
   animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
@@ -191,6 +201,15 @@ label.color-2 {
   transition: all 250ms linear;
   transition-delay: 300ms;
 }
+/* BUG-2 FIX: hide default background when another color is selected */
+.for-color-2:checked ~ .back-color:not(.chair-2),
+.for-color-3:checked ~ .back-color:not(.chair-3),
+.for-color-4:checked ~ .back-color:not(.chair-4),
+.for-color-5:checked ~ .back-color:not(.chair-5),
+.for-color-6:checked ~ .back-color:not(.chair-6) {
+  opacity: 0;
+}
+
 .back-color.chair-2 {
   background-image: linear-gradient(196deg, #4c4c4c, #262626);
   opacity: 0;
